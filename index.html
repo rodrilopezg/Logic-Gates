@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+  <title>Logic Gates - By Rodrigo López Gamarro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Quicksand:wght@700&amp;display=swap'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<header>
+	<svg class="display" viewBox="0 0 475 45">
+		<text x="10" y="36">Compuertas <tspan class="text-primary">Lógicas</tspan></text>
+	</svg>
+</header>
+
+<div class="gate-cards-container">
+	<article class="gate-card" id="not-gate">
+		<div class="gate-container">
+			<input class="in-check-0" type="checkbox" id="not-in-0">
+			<label class="in in-0 in-center" for="not-in-0"></label>
+			<svg class="gate-svg" width="251" height="86" viewBox="0 0 251 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path class="in-0" d="M38 43H57" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="out" d="M197 43H213" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<circle class="not-out" cx="178" cy="43" r="14" stroke="#000000" stroke-width="10" />
+				<path class="not-out" d="M150.736 47.6931L72.7248 76.3639C69.4612 77.5634 66 75.1479 66 71.6708V14.3292C66 10.8521 69.4612 8.43665 72.7248 9.63611L150.736 38.3069C155.103 39.9118 155.103 46.0881 150.736 47.6931Z" stroke="#000000" stroke-width="10" />
+				<rect class="in-0" x="5" y="29" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="out" x="218" y="29" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<text class="in-0-off" x="9" y="53">
+					0
+				</text>
+				<text class="in-0-on" x="11" y="53">
+					1
+				</text>
+				<text class="out-label-off" x="222" y="53">
+					0
+				</text>
+				<text class="out-label-on" x="224" y="53">
+					1
+				</text>
+			</svg>
+		</div>
+		<div class="truth-table-container">
+			<h2>Not</h2>
+			<table>
+				<tr>
+					<th>In A</th>
+					<th>out</th>
+				</tr>
+				<tr class="row-0">
+					<td>0</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-1">
+					<td>1</td>
+					<td>0</td>
+				</tr>
+			</table>
+		</div>
+	</article>
+
+	<article class="gate-card" id="and-gate">
+		<div class="gate-container">
+			<input class="in-check-0" type="checkbox" id="and-in-0">
+			<label class="in in-0" for="and-in-0"></label>
+			<input class="in-check-1" type="checkbox" id="and-in-1">
+			<label class="in in-1" for="and-in-1"></label>
+			<svg class="gate-svg" width="251" height="86" viewBox="0 0 251 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path class="in-0" d="M38 19H78" stroke="#000000" stroke-width="10" />
+				<path class="in-1" d="M38 67H78" stroke="#000000" stroke-width="10" />
+				<path class="out" d="M182 43L213 43" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path d="M88 5H137.5C157.106 5 173 20.8939 173 40.5V45.5C173 65.1061 157.106 81 137.5 81H88C85.2386 81 83 78.7614 83 76V10C83 7.23858 85.2386 5 88 5Z" stroke="#000000" stroke-width="10" />
+				<rect class="in-0" x="5" y="5" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="in-1" x="5" y="53" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="out" x="218" y="29" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<text class="in-0-off" x="9" y="29">
+					0
+				</text>
+				<text class="in-0-on" x="11" y="29">
+					1
+				</text>
+				<text class="in-1-off" x="9" y="78">
+					0
+				</text>
+				<text class="in-1-on" x="11" y="78">
+					1
+				</text>
+				<text class="out-label-off" x="222" y="53">
+					0
+				</text>
+				<text class="out-label-on" x="224" y="53">
+					1
+				</text>
+			</svg>
+		</div>
+		<div class="truth-table-container">
+			<h2>And</h2>
+			<table>
+				<tr>
+					<th>In A</th>
+					<th>In B</th>
+					<th>out</th>
+				</tr>
+				<tr class="row-00">
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				<tr class="row-01">
+					<td>0</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+				<tr class="row-10">
+					<td>1</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				<tr class="row-11">
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+			</table>
+		</div>
+	</article>
+
+	<article class="gate-card" id="nand-gate">
+		<div class="gate-container">
+			<input class="in-check-0" type="checkbox" id="nand-in-0">
+			<label class="in in-0" for="nand-in-0"></label>
+			<input class="in-check-1" type="checkbox" id="nand-in-1">
+			<label class="in in-1" for="nand-in-1"></label>
+			<svg class="gate-svg" width="251" height="86" viewBox="0 0 251 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path class="in-0" d="M38 19H54" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="in-1" d="M38 67H54" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="out" d="M197 42H213" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path d="M69 5H118.5C138.106 5 154 20.8939 154 40.5V45.5C154 65.1061 138.106 81 118.5 81H69C66.2386 81 64 78.7614 64 76V10C64 7.23858 66.2386 5 69 5Z" stroke="#000000" stroke-width="10" />
+				<circle cx="178" cy="42" r="14" stroke="#000000" stroke-width="10" />
+				<rect class="in-0" x="5" y="5" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="in-1" x="5" y="53" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="out" x="218" y="28" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<text class="in-0-off" x="9" y="29">
+					0
+				</text>
+				<text class="in-0-on" x="11" y="29">
+					1
+				</text>
+				<text class="in-1-off" x="9" y="78">
+					0
+				</text>
+				<text class="in-1-on" x="11" y="78">
+					1
+				</text>
+				<text class="out-label-off" x="222" y="53">
+					0
+				</text>
+				<text class="out-label-on" x="224" y="53">
+					1
+				</text>
+			</svg>
+		</div>
+		<div class="truth-table-container">
+			<h2>nand</h2>
+			<table>
+				<tr>
+					<th>In A</th>
+					<th>In B</th>
+					<th>out</th>
+				</tr>
+				<tr class="row-00">
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-01">
+					<td>0</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-10">
+					<td>1</td>
+					<td>0</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-11">
+					<td>1</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+			</table>
+		</div>
+	</article>
+
+	<article class="gate-card" id="or-gate">
+		<div class="gate-container">
+			<input class="in-check-0" type="checkbox" id="or-in-0">
+			<label class="in in-0" for="or-in-0"></label>
+			<input class="in-check-1" type="checkbox" id="or-in-1">
+			<label class="in in-1" for="or-in-1"></label>
+			<svg class="gate-svg" width="251" height="86" viewBox="0 0 251 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path class="in-0" d="M38 19H78" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="in-1" d="M38 67H78" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="out" d="M181 43L213 43" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path d="M92.601 80.3768H92.5454L92.4898 80.378L75.7765 80.75C75.0039 80.7672 74.5279 79.9119 74.9496 79.2644C89.3091 57.2163 88.9719 28.5156 74.4314 6.65479C74.1956 6.30032 74.1824 5.90865 74.379 5.53371C74.4776 5.3457 74.6094 5.21135 74.7375 5.13001C74.8492 5.05902 74.9988 5 75.2328 5H92.601H105.742C126.252 5 145.868 13.4 160.022 28.2443L174.067 42.9747L159.988 57.527C145.858 72.1312 126.407 80.3768 106.086 80.3768H92.601Z" stroke="#000000" stroke-width="10" />
+				<rect class="in-0" x="5" y="5" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="in-1" x="5" y="53" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="out" x="218" y="29" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<text class="in-0-off" x="9" y="29">
+					0
+				</text>
+				<text class="in-0-on" x="11" y="29">
+					1
+				</text>
+				<text class="in-1-off" x="9" y="78">
+					0
+				</text>
+				<text class="in-1-on" x="11" y="78">
+					1
+				</text>
+				<text class="out-label-off" x="222" y="53">
+					0
+				</text>
+				<text class="out-label-on" x="224" y="53">
+					1
+				</text>
+			</svg>
+		</div>
+		<div class="truth-table-container">
+			<h2>or</h2>
+			<table>
+				<tr>
+					<th>In A</th>
+					<th>In B</th>
+					<th>out</th>
+				</tr>
+				<tr class="row-00">
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				<tr class="row-01">
+					<td>0</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-10">
+					<td>1</td>
+					<td>0</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-11">
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+			</table>
+		</div>
+	</article>
+
+	<article class="gate-card" id="nor-gate">
+		<div class="gate-container">
+			<input class="in-check-0" type="checkbox" id="nor-in-0">
+			<label class="in in-0" for="nor-in-0"></label>
+			<input class="in-check-1" type="checkbox" id="nor-in-1">
+			<label class="in in-1" for="nor-in-1"></label>
+			<svg class="gate-svg" width="251" height="86" viewBox="0 0 251 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path class="in-0" d="M38 19H54" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="in-1" d="M38 67H54" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="out" d="M197 43L213 43" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<circle cx="178" cy="43" r="14" stroke="#000000" stroke-width="10" />
+				<path d="M72.601 80.3768H72.5454L72.4898 80.378L55.7765 80.75C55.0039 80.7672 54.5279 79.9119 54.9496 79.2644C69.3091 57.2163 68.9719 28.5156 54.4314 6.65479C54.1956 6.30032 54.1824 5.90865 54.379 5.53371C54.4776 5.3457 54.6094 5.21135 54.7375 5.13001C54.8492 5.05902 54.9988 5 55.2328 5H72.601H85.7418C106.252 5 125.868 13.4 140.022 28.2443L154.067 42.9747L139.988 57.527C125.858 72.1312 106.407 80.3768 86.0865 80.3768H72.601Z" stroke="#000000" stroke-width="10" />
+				<rect class="in-0" x="5" y="5" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="in-1" x="5" y="53" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="out" x="218" y="29" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<text class="in-0-off" x="9" y="29">
+					0
+				</text>
+				<text class="in-0-on" x="11" y="29">
+					1
+				</text>
+				<text class="in-1-off" x="9" y="78">
+					0
+				</text>
+				<text class="in-1-on" x="11" y="78">
+					1
+				</text>
+				<text class="out-label-off" x="222" y="53">
+					0
+				</text>
+				<text class="out-label-on" x="224" y="53">
+					1
+				</text>
+			</svg>
+		</div>
+		<div class="truth-table-container">
+			<h2>nor</h2>
+			<table>
+				<tr>
+					<th>In A</th>
+					<th>In B</th>
+					<th>out</th>
+				</tr>
+				<tr class="row-00">
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-01">
+					<td>0</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+				<tr class="row-10">
+					<td>1</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				<tr class="row-11">
+					<td>1</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+			</table>
+		</div>
+	</article>
+
+	<article class="gate-card" id="xor-gate">
+		<div class="gate-container">
+			<input class="in-check-0" type="checkbox" id="xor-in-0">
+			<label class="in in-0" for="xor-in-0"></label>
+			<input class="in-check-1" type="checkbox" id="xor-in-1">
+			<label class="in in-1" for="xor-in-1"></label>
+			<svg class="gate-svg" width="251" height="86" viewBox="0 0 251 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path class="in-0" d="M38 19H78" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="in-1" d="M38 67H78" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="out" d="M181 43L213 43" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path d="M108.475 80.3768H108.408L108.34 80.3786L96.9642 80.6872C95.6262 80.7235 94.7475 79.3017 95.3782 78.1212C107.109 56.1678 106.839 29.5631 94.937 7.7525C94.2282 6.45349 95.216 5 96.4852 5H108.475C131.482 5 153.209 15.5886 167.384 33.7097L174.634 42.9774L167.468 52.0054C153.251 69.9161 131.376 80.3768 108.475 80.3768ZM175.124 42.3602L175.123 42.3619L175.124 42.3602Z" stroke="#000000" stroke-width="10" />
+				<path d="M75 6.37036V6.37036C90.1155 28.8384 90.1155 58.2233 75 80.6913V80.6913" stroke="#000000" stroke-width="10" stroke-linecap="round" />
+				<rect class="in-0" x="5" y="5" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="in-1" x="5" y="53" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="out" x="218" y="29" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<text class="in-0-off" x="9" y="29">
+					0
+				</text>
+				<text class="in-0-on" x="11" y="29">
+					1
+				</text>
+				<text class="in-1-off" x="9" y="78">
+					0
+				</text>
+				<text class="in-1-on" x="11" y="78">
+					1
+				</text>
+				<text class="out-label-off" x="222" y="53">
+					0
+				</text>
+				<text class="out-label-on" x="224" y="53">
+					1
+				</text>
+			</svg>
+		</div>
+		<div class="truth-table-container">
+			<h2>xor</h2>
+			<table>
+				<tr>
+					<th>In A</th>
+					<th>In B</th>
+					<th>out</th>
+				</tr>
+				<tr class="row-00">
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				<tr class="row-01">
+					<td>0</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-10">
+					<td>1</td>
+					<td>0</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-11">
+					<td>1</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+			</table>
+		</div>
+	</article>
+
+	<article class="gate-card" id="xnor-gate">
+		<div class="gate-container">
+			<input class="in-check-0" type="checkbox" id="xnor-in-0">
+			<label class="in in-0" for="xnor-in-0"></label>
+			<input class="in-check-1" type="checkbox" id="xnor-in-1">
+			<label class="in in-1" for="xnor-in-1"></label>
+			<svg class="gate-svg" width="251" height="86" viewBox="0 0 251 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path class="in-0" d="M38 19H54" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="in-1" d="M38 67H54" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path class="out" d="M197 43L213 43" stroke="#000000" stroke-width="10" stroke-linecap="square" />
+				<path d="M88.4755 80.3768H88.4077L88.3399 80.3786L76.9642 80.6872C75.6262 80.7235 74.7475 79.3017 75.3782 78.1212C87.1085 56.1678 86.839 29.5631 74.937 7.7525C74.2282 6.45349 75.216 5 76.4852 5H88.4755C111.482 5 133.209 15.5886 147.384 33.7097L154.634 42.9774L147.468 52.0054C133.251 69.9161 111.376 80.3768 88.4755 80.3768ZM155.124 42.3602L155.123 42.3619L155.124 42.3602Z" stroke="#000000" stroke-width="10" />
+				<path d="M55 6.37036V6.37036C70.1155 28.8384 70.1155 58.2233 55 80.6913V80.6913" stroke="#000000" stroke-width="10" stroke-linecap="round" />
+				<circle cx="178" cy="43" r="14" stroke="#000000" stroke-width="10" />
+				<rect class="in-0" x="5" y="5" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="in-1" x="5" y="53" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<rect class="out" x="218" y="29" width="28" height="28" rx="5" stroke="#000000" fill="#000000" stroke-width="10" />
+				<text class="in-0-off" x="9" y="29">
+					0
+				</text>
+				<text class="in-0-on" x="11" y="29">
+					1
+				</text>
+				<text class="in-1-off" x="9" y="78">
+					0
+				</text>
+				<text class="in-1-on" x="11" y="78">
+					1
+				</text>
+				<text class="out-label-off" x="222" y="53">
+					0
+				</text>
+				<text class="out-label-on" x="224" y="53">
+					1
+				</text>
+			</svg>
+		</div>
+		<div class="truth-table-container">
+			<h2>xnor</h2>
+			<table>
+				<tr>
+					<th>In A</th>
+					<th>In B</th>
+					<th>out</th>
+				</tr>
+				<tr class="row-00">
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+				</tr>
+				<tr class="row-01">
+					<td>0</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+				<tr class="row-10">
+					<td>1</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				<tr class="row-11">
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+			</table>
+		</div>
+	</article>
+</div>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

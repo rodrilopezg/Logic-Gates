@@ -1,0 +1,717 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #fff;
+  font-family: "Bungee", cursive;
+  background: #07273c;
+  /* fallback for old browsers */
+  background-size: 80px 80px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+svg.display {
+  width: 100%;
+  height: 70px;
+  filter: drop-shadow(4px 6px 0 rgba(0, 0, 0, 0.5));
+}
+svg.display text {
+  font-size: 37px;
+  letter-spacing: 0px;
+  fill: white;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+svg.display tspan.text-primary {
+  fill: #ffdd40;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+body {
+  display: grid;
+  grid-template-areas: "header" "main";
+  grid-template-columns: 1fr;
+}
+body header {
+  grid-area: header;
+}
+body .gate-cards-container {
+  grid-area: main;
+}
+
+header {
+  padding: 0 0 40px 0;
+}
+
+article.gate-card {
+  align-items: center;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 1rem;
+}
+
+.gate-container {
+  position: relative;
+}
+.gate-container .in {
+  height: 38px;
+  left: 0;
+  position: absolute;
+  width: 38px;
+}
+.gate-container .in.in-0 {
+  top: 0;
+}
+.gate-container .in.in-1 {
+  bottom: 0;
+}
+.gate-container .in.in-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.gate-container input[type=checkbox] {
+  display: none;
+}
+.gate-container input[type=checkbox]:checked + label.in-0 ~ svg .in-0 {
+  fill: #00b1ff;
+  stroke: #00b1ff;
+}
+.gate-container input[type=checkbox]:checked + label.in-0 ~ svg .in-0-off {
+  visibility: hidden;
+}
+.gate-container input[type=checkbox]:checked + label.in-0 ~ svg .in-0-on {
+  visibility: visible;
+}
+.gate-container input[type=checkbox]:checked + label.in-1 ~ svg .in-1 {
+  fill: #00b1ff;
+  stroke: #00b1ff;
+}
+.gate-container input[type=checkbox]:checked + label.in-1 ~ svg .in-1-off {
+  visibility: hidden;
+}
+.gate-container input[type=checkbox]:checked + label.in-1 ~ svg .in-1-on {
+  visibility: visible;
+}
+
+.gate-svg {
+  display: block;
+}
+.gate-svg [stroke^="#"] {
+  stroke: #fff;
+}
+.gate-svg [fill^="#"] {
+  fill: #fff;
+}
+.gate-svg text {
+  font-size: 28px;
+  letter-spacing: 0px;
+  fill: #07273c;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.gate-svg .in-0-off,
+.gate-svg .in-1-off,
+.gate-svg .out-label-off {
+  visibility: visible;
+}
+.gate-svg .in-0-on,
+.gate-svg .in-1-on,
+.gate-svg .out-label-on {
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 3px;
+  color: white;
+  display: flex;
+}
+
+.truth-table-container {
+  border: 3px solid #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  position: relative;
+}
+.truth-table-container h2 {
+  background-color: #07273c;
+  left: 50%;
+  margin: 0;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  translate: -50% -55%;
+}
+.truth-table-container table {
+  text-align: center;
+  min-width: 200px;
+}
+
+#not-gate:has(.in-check-0:not(:checked)) .out {
+  stroke: #ffdd40;
+  fill: #ffdd40;
+}
+#not-gate:has(.in-check-0:not(:checked)) .out-label-off {
+  visibility: hidden;
+}
+#not-gate:has(.in-check-0:not(:checked)) .out-label-on {
+  visibility: visible;
+}
+#not-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#not-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#not-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#not-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#not-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#not-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#not-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#not-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#not-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#not-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#not-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#not-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#not-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#not-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#not-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#not-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#not-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#not-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+
+#and-gate:has(.in-check-0:checked):has(.in-check-1:checked) .out {
+  stroke: #ffdd40;
+  fill: #ffdd40;
+}
+#and-gate:has(.in-check-0:checked):has(.in-check-1:checked) .out-label-off {
+  visibility: hidden;
+}
+#and-gate:has(.in-check-0:checked):has(.in-check-1:checked) .out-label-on {
+  visibility: visible;
+}
+#and-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#and-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#and-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#and-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#and-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#and-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#and-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#and-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#and-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#and-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#and-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#and-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#and-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#and-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#and-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#and-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#and-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#and-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+
+#nand-gate:has(.in-check-0:not(:checked), .in-check-1:not(:checked)) .out {
+  stroke: #ffdd40;
+  fill: #ffdd40;
+}
+#nand-gate:has(.in-check-0:not(:checked), .in-check-1:not(:checked)) .out-label-off {
+  visibility: hidden;
+}
+#nand-gate:has(.in-check-0:not(:checked), .in-check-1:not(:checked)) .out-label-on {
+  visibility: visible;
+}
+#nand-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nand-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nand-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nand-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nand-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nand-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nand-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nand-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nand-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nand-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nand-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nand-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nand-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nand-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nand-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nand-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nand-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nand-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+
+#or-gate:has(.in-check-0:checked, .in-check-1:checked) .out {
+  stroke: #ffdd40;
+  fill: #ffdd40;
+}
+#or-gate:has(.in-check-0:checked, .in-check-1:checked) .out-label-off {
+  visibility: hidden;
+}
+#or-gate:has(.in-check-0:checked, .in-check-1:checked) .out-label-on {
+  visibility: visible;
+}
+#or-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#or-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#or-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#or-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#or-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#or-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#or-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#or-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#or-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#or-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#or-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#or-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#or-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#or-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#or-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#or-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#or-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#or-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+
+#nor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .out {
+  stroke: #ffdd40;
+  fill: #ffdd40;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .out-label-off {
+  visibility: hidden;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .out-label-on {
+  visibility: visible;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nor-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nor-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nor-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nor-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#nor-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#nor-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#nor-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+
+#xor-gate:has(.in-check-0:checked, .in-check-1:checked) .out {
+  stroke: #ffdd40;
+  fill: #ffdd40;
+}
+#xor-gate:has(.in-check-0:checked, .in-check-1:checked) .out-label-off {
+  visibility: hidden;
+}
+#xor-gate:has(.in-check-0:checked, .in-check-1:checked) .out-label-on {
+  visibility: visible;
+}
+#xor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .out {
+  stroke: #fff;
+  fill: #fff;
+}
+#xor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .out-label-off {
+  visibility: visible;
+}
+#xor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .out-label-on {
+  visibility: hidden;
+}
+#xor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xor-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xor-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xor-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xor-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xor-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xor-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xor-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xor-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xor-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+
+#xnor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .out {
+  stroke: #ffdd40;
+  fill: #ffdd40;
+}
+#xnor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .out-label-off {
+  visibility: hidden;
+}
+#xnor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .out-label-on {
+  visibility: visible;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .out {
+  stroke: #ffdd40;
+  fill: #ffdd40;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .out-label-off {
+  visibility: hidden;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .out-label-on {
+  visibility: visible;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:not(:checked)) .row-00 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(.in-check-1:checked) .row-01 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xnor-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xnor-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xnor-gate:has(.in-check-0:checked):has(.in-check-1:not(:checked)) .row-10 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xnor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xnor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xnor-gate:has(.in-check-0:checked):has(.in-check-1:checked) .row-11 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xnor-gate:has(.in-check-0:not(:checked)):has(:not(.in-check-1)) .row-0 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
+#xnor-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td {
+  background-color: #00b1ff;
+  color: #07273c;
+}
+#xnor-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+#xnor-gate:has(.in-check-0:checked):has(:not(.in-check-1)) .row-1 td:last-child {
+  background-color: #ffdd40;
+  border-radius: 0 5px 5px 0;
+}
